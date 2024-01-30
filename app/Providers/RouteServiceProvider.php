@@ -14,6 +14,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    public const HOME = '/';
+
     protected $namespace = 'App\Http\Controllers';
 
     public function map(): void
@@ -21,7 +23,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
     }
 
-    protected function mapApiRoutes()
+    protected function mapApiRoutes(): void
     {
         Route::middleware('api')
             ->namespace($this->namespace)
