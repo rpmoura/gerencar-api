@@ -3,7 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -30,7 +30,7 @@ class Handler extends ExceptionHandler
         });
     }
 
-    public function render($request, Throwable $exception): JsonResponse
+    public function render($request, Throwable $exception): Response
     {
         $code = method_exists($exception, 'getCode') ? $exception->getCode() : '-1';
 

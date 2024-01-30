@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
@@ -13,7 +14,10 @@ abstract class Controller extends BaseController
     use AuthorizesRequests;
     use ValidatesRequests;
 
-    protected array $response;
+    /**
+     * @var array<string, mixed>
+     */
+    protected array $response = [];
 
     public function __construct()
     {
@@ -25,7 +29,7 @@ abstract class Controller extends BaseController
         ];
     }
 
-    protected function buildResponseError($exception, int $codeStatus): JsonResponse
+    protected function buildResponseError(Exception $exception, int $codeStatus): JsonResponse
     {
         $field = null;
 
