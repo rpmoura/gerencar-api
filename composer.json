@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23.1",
-        "laravel/pint": "^1.13.10",
+        "laravel/pint": "^1.13",
         "laravel/sail": "^v1.27.2",
         "mockery/mockery": "^1.6.7",
         "nunomaduro/collision": "^7.10.0",
@@ -51,7 +51,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "format": "./vendor/bin/pint",
+        "format:test": "./vendor/bin/pint --test"
     },
     "extra": {
         "laravel": {
