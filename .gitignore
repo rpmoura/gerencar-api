@@ -20,3 +20,7 @@ yarn-error.log
 /docker/mysql/db
 .composer_installed
 .migrations_executed
+/build
+.phpunit.cache/
+.php-cs-fixer.cache
+/public/reports
