@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+  api:
+    image: rpmoura/php-8.2-fpm:1.1
+    container_name: gerencicar-api
+    hostname: api
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    command: bash -c "/usr/local/bin/docker-entrypoint.sh && php-fpm"
+    networks:
+      gerencicar-network:
+          ipv4_address: 172.30.0.100
+    depends_on:
+      - mysql
+    healthcheck:
+      test: bash -c "[ -f /var/www/.composer_installed ] && [ -f /var/www/.migrations_executed ] &&  [ -f /var/www/.env ]"
+      interval: 1m
+      timeout: 5s
+      retries: 30
+
+  mysql:
+    image: mysql:5.7
+    container_name: gerencicar-db
+    hostname: mysql
+    environment:
+      MYSQL_DATABASE: gerencicar
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+      MYSQL_USER: gerencicar-user
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    command: --init-file /tmp/init.sql
+    ports:
+      - 3319:3306
+    volumes:
+      - ./docker/mysql/init.sql:/tmp/init.sql
+      - ./docker/mysql/db:/var/lib/mysql
+    networks:
+      gerencicar-network:
+          ipv4_address: 172.30.0.101
+
+  nginx:
+    image: nginx:1.23.1-alpine
+    container_name: gerencicar-nginx
+    hostname: nginx
+    ports:
+      - 8019:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    networks:
+      gerencicar-network:
+          ipv4_address: 172.30.0.102
+    depends_on:
+      api:
+        condition: service_healthy
+
+networks:
+  gerencicar-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+          gateway: 172.30.0.1

@@ -1,0 +1,7 @@
+# Ignore a file or directory
+docker
+.idea
+.git
+.github
+/docker
+docker-compose.yml
