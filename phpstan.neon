@@ -1,0 +1,15 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app/
+
+    level: 9
+
+    ignoreErrors:
+    excludePaths:
+    checkGenericClassInNonGenericObjectType: false
+    noModelMake: false
+    noUnnecessaryCollectionCall: false
