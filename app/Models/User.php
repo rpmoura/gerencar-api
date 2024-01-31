@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Uuid\UseUuid;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,4 +40,11 @@ class User extends Model
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    protected function password(): Attribute
+    {
+        return Attribute::make(
+            set: fn (string $value) => bcrypt($value),
+        );
+    }
 }
