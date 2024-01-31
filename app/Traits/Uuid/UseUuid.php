@@ -22,7 +22,7 @@ trait UseUuid
 
             $originalUuid = $model->getOriginal($model->getUuidColumnName());
 
-            if ($originalUuid !== $model->getUuid()) {
+            if ($originalUuid !== $model->getUuid() && $originalUuid) {
                 $model->setUuid($originalUuid);
             }
         });
