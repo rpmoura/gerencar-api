@@ -152,4 +152,21 @@ class UserServiceTest extends TestCase
 
         $this->service->delete($user->uuid);
     }
+
+    /**
+     * @test
+     */
+    public function shouldFindUsers()
+    {
+        $user = User::factory()->create();
+
+        $result = $this->service->findUsers();
+
+        $this->repository->expects($this->once())
+            ->method('get')
+            ->willReturn(collect([$user]));
+
+        $this->assertInstanceOf(UserRepositoryInterface::class, $result);
+        $this->assertCount(1, $result->get());
+    }
 }
