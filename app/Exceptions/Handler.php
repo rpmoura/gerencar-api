@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -32,16 +33,22 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception): Response
     {
-        $code = method_exists($exception, 'getCode') ? $exception->getCode() : '-1';
+        $code       = method_exists($exception, 'getCode') ? $exception->getCode() : '-1';
+        $statusCode = method_exists($exception, 'getStatusCode') ? $exception->getStatusCode() : 500;
+        $message    = $statusCode == 500
+            ? trans('exception.internal_error')
+            : ($exception->getMessage() ?: trans('exception.method_not_allowed'));
 
         return match (true) {
+            $exception instanceof RepositoryException,
+            $exception instanceof BindingResolutionException,
             $exception instanceof NotFoundHttpException => response()->json(
                 [
                     'code'    => $code,
                     'type'    => 'error',
-                    'message' => $exception->getMessage() ?: trans('exception.method_not_allowed'),
+                    'message' => $message,
                 ],
-                $exception->getStatusCode()
+                $statusCode
             ),
             default => parent::render($request, $exception),
         };
