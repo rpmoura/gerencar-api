@@ -7,7 +7,8 @@ use App\Repositories\RepositoryInterface;
 use Illuminate\Container\Container as Application;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Pagination\Paginator;
-use Illuminate\Database\Eloquent\{Collection, Model};
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 abstract class BaseRepository implements RepositoryInterface
 {
