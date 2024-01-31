@@ -8,9 +8,9 @@ use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Services\Contracts\UserServiceInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-readonly class UserService implements UserServiceInterface
+class UserService implements UserServiceInterface
 {
-    public function __construct(private UserRepositoryInterface $userRepository)
+    public function __construct(private readonly UserRepositoryInterface $userRepository)
     {
     }
 
