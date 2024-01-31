@@ -61,4 +61,9 @@ readonly class UserService implements UserServiceInterface
             throw new RepositoryException(__('exception.user.delete_unsuccessfully'));
         }
     }
+
+    public function findUsers(): UserRepositoryInterface
+    {
+        return $this->userRepository;
+    }
 }

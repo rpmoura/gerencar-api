@@ -3,6 +3,7 @@
 namespace App\Services\Contracts;
 
 use App\Models\User;
+use App\Repositories\Contracts\UserRepositoryInterface;
 
 interface UserServiceInterface
 {
@@ -32,4 +33,5 @@ interface UserServiceInterface
      */
     public function delete(string $uuid): void;
 
+    public function findUsers(): UserRepositoryInterface;
 }
