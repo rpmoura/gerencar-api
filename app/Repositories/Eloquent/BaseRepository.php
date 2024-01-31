@@ -177,4 +177,4 @@ abstract class BaseRepository implements RepositoryInterface
     }
 
     abstract public function model(): string;
- }
+}

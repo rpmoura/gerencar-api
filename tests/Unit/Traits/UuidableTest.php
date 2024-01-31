@@ -13,7 +13,7 @@ class UuidableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->trait = new class {
+        $this->trait = new class () {
             use Uuidable;
 
             protected string $uuidColumnName = 'uuid';
