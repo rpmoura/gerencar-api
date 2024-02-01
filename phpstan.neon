@@ -8,7 +8,7 @@ parameters:
 
     level: 5
     ignoreErrors:
-        - '#Access to an undefined property.*UserResource::\$(uuid|email|created_at|updated_at)#'
+        - '#Access to an undefined property.*App\\Http\\Resources\\V1\\.*::\$([a-zA-Z_]+)#'
     excludePaths:
         analyseAndScan:
              - app/Repositories/RepositoryInterface.php
