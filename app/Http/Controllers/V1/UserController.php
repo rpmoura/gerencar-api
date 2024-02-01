@@ -4,10 +4,9 @@ namespace App\Http\Controllers\V1;
 
 use App\Exceptions\RepositoryException;
 use App\Http\Controllers\Controller;
-use App\Services\Contracts\UserServiceInterface;
 use App\Http\Requests\V1\Users\{CreateUserRequest, EditUserRequest};
-use App\Http\Resources\V1\Users\UserResource;
-use App\Http\Resources\V1\Users\{UserResourceCollection};
+use App\Http\Resources\V1\Users\{UserResource, UserResourceCollection};
+use App\Services\Contracts\UserServiceInterface;
 use Illuminate\Http\{JsonResponse, Request};
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpFoundation\Response as HttpStatus;
