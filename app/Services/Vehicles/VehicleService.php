@@ -2,6 +2,7 @@
 
 namespace App\Services\Vehicles;
 
+use App\Events\VehicleDeleted;
 use App\Exceptions\RepositoryException;
 use App\Models\Vehicle;
 use App\Repositories\Contracts\VehicleRepositoryInterface;
@@ -61,6 +62,8 @@ class VehicleService implements VehicleServiceInterface
         if (!$result) {
             throw new RepositoryException(__('exception.vehicle.delete_unsuccessfully'));
         }
+
+        event(new VehicleDeleted($vehicle));
     }
 
     public function findVehicles(array $filter = []): Builder

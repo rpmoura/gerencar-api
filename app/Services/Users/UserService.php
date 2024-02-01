@@ -2,6 +2,7 @@
 
 namespace App\Services\Users;
 
+use App\Events\UserDeleted;
 use App\Exceptions\RepositoryException;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepositoryInterface;
@@ -60,6 +61,8 @@ class UserService implements UserServiceInterface
         if (!$result) {
             throw new RepositoryException(__('exception.user.delete_unsuccessfully'));
         }
+
+        event(new UserDeleted($user));
     }
 
     public function findUsers(): UserRepositoryInterface
