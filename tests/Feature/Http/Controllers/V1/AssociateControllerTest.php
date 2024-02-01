@@ -40,6 +40,10 @@ class AssociateControllerTest extends TestCase
      */
     public function shouldListAssociations()
     {
+        User::factory()
+            ->has(Vehicle::factory()->count(7))
+            ->create();
+
         $user = User::factory()
             ->has(Vehicle::factory()->count(5))
             ->create();
@@ -48,6 +52,8 @@ class AssociateControllerTest extends TestCase
 
         $response->assertStatus(200);
         $this->assertEquals(__('message.user.vehicle.listed_successfully'), $response->json('message'));
+        $this->assertCount(5, $response->json('data.vehicles.data'));
+        $this->assertDatabaseCount('users_x_vehicles', 12);
         $response->assertJsonStructure(
             [
                 'data' => [
