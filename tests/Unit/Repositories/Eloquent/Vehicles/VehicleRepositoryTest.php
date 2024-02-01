@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Repositories\Eloquent\Vehicles;
 
-use App\Models\Vehicle;
+use App\Models\{User, Vehicle};
 use App\Repositories\Contracts\VehicleRepositoryInterface;
 use App\Repositories\Eloquent\Vehicles\VehicleRepository;
 use Illuminate\Container\Container as Application;
@@ -179,5 +179,28 @@ class VehicleRepositoryTest extends TestCase
 
         $this->assertIsBool($result);
         $this->assertTrue($result);
+    }
+
+    /**
+     * @test
+     */
+    public function shouldFindVehiclesByUser()
+    {
+        User::factory()
+            ->has(Vehicle::factory()->count(3))
+            ->create();
+
+        $user = User::factory()
+            ->has(Vehicle::factory()->count(2))
+            ->create();
+
+        $filter = [
+            'user' => $user->id,
+        ];
+
+        $result = $this->repository->findVehicles($filter)->get();
+
+        $this->assertInstanceOf(Collection::class, $result);
+        $this->assertCount(2, $result);
     }
 }
