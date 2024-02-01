@@ -5,12 +5,14 @@ namespace App\Models;
 use App\Traits\Uuid\UseUuid;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 
 class User extends Model
 {
     use UseUuid;
     use HasFactory;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -46,5 +48,10 @@ class User extends Model
         return Attribute::make(
             set: fn (string $value) => bcrypt($value),
         );
+    }
+
+    public function vehicles(): BelongsToMany
+    {
+        return $this->belongsToMany(Vehicle::class, 'users_x_vehicles', 'user_id', 'vehicle_id');
     }
 }

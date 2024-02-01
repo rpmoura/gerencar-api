@@ -2,12 +2,15 @@
 
 namespace Tests\Unit\Services\Vehicles;
 
+use App\Events\VehicleDeleted;
 use App\Exceptions\RepositoryException;
 use App\Models\Vehicle;
 use App\Repositories\Contracts\VehicleRepositoryInterface;
 use App\Repositories\Eloquent\Vehicles\VehicleRepository;
 use App\Services\Contracts\VehicleServiceInterface;
 use App\Services\Vehicles\VehicleService;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Event;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Tests\TestCase;
 
@@ -116,6 +119,8 @@ class VehicleServiceTest extends TestCase
         $attributes = Vehicle::factory()->make(['id' => 1])->toArray();
         $vehicle    = (new Vehicle())->newInstance()->forceFill($attributes);
 
+        Event::fake([VehicleDeleted::class]);
+
         $this->repository->expects($this->once())
             ->method('findOneBy')
             ->with('uuid', $vehicle->uuid)
@@ -128,6 +133,8 @@ class VehicleServiceTest extends TestCase
 
         $result = $this->service->delete($vehicle->uuid);
         $this->assertNull($result);
+
+        Event::assertDispatched(VehicleDeleted::class);
     }
 
     /**
@@ -137,6 +144,8 @@ class VehicleServiceTest extends TestCase
     {
         $attributes = Vehicle::factory()->make(['id' => 1])->toArray();
         $vehicle    = (new Vehicle())->newInstance()->forceFill($attributes);
+
+        Event::fake([VehicleDeleted::class]);
 
         $this->repository->expects($this->once())
             ->method('findOneBy')
@@ -152,6 +161,8 @@ class VehicleServiceTest extends TestCase
         $this->expectExceptionMessage(__('exception.vehicle.delete_unsuccessfully'));
 
         $this->service->delete($vehicle->uuid);
+
+        Event::assertNotDispatched(VehicleDeleted::class);
     }
 
     /**
@@ -159,15 +170,24 @@ class VehicleServiceTest extends TestCase
      */
     public function shouldFindVehicles()
     {
-        $vehicle = Vehicle::factory()->create();
+        Vehicle::factory()->create();
 
         $result = $this->service->findVehicles();
 
-        $this->repository->expects($this->once())
-            ->method('get')
-            ->willReturn(collect([$vehicle]));
+        $this->assertInstanceOf(Builder::class, $result);
+    }
 
-        $this->assertInstanceOf(VehicleRepositoryInterface::class, $result);
-        $this->assertCount(1, $result->get());
+    /**
+     * @test
+     */
+    public function shouldDisassociateUsers()
+    {
+        $vehicle = Vehicle::factory()->create();
+
+        $this->repository->expects($this->once())
+            ->method('detach')
+            ->with($vehicle->id, 'users', null);
+
+        $this->service->disassociateUser($vehicle->id, null);
     }
 }

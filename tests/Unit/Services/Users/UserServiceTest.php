@@ -2,12 +2,14 @@
 
 namespace Tests\Unit\Services\Users;
 
+use App\Events\UserDeleted;
 use App\Exceptions\RepositoryException;
-use App\Models\User;
+use App\Models\{User, Vehicle};
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Eloquent\Users\UserRepository;
 use App\Services\Contracts\UserServiceInterface;
 use App\Services\Users\UserService;
+use Illuminate\Support\Facades\Event;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Tests\TestCase;
 
@@ -115,6 +117,8 @@ class UserServiceTest extends TestCase
         $attributes = User::factory()->make(['id' => 1])->toArray();
         $user       = (new User())->newInstance()->forceFill($attributes);
 
+        Event::fake([UserDeleted::class]);
+
         $this->repository->expects($this->once())
             ->method('findOneBy')
             ->with('uuid', $user->uuid)
@@ -127,6 +131,8 @@ class UserServiceTest extends TestCase
 
         $result = $this->service->delete($user->uuid);
         $this->assertNull($result);
+
+        Event::assertDispatched(UserDeleted::class);
     }
 
     /**
@@ -136,6 +142,8 @@ class UserServiceTest extends TestCase
     {
         $attributes = User::factory()->make(['id' => 1])->toArray();
         $user       = (new User())->newInstance()->forceFill($attributes);
+
+        Event::fake([UserDeleted::class]);
 
         $this->repository->expects($this->once())
             ->method('findOneBy')
@@ -151,6 +159,8 @@ class UserServiceTest extends TestCase
         $this->expectExceptionMessage(__('exception.user.delete_unsuccessfully'));
 
         $this->service->delete($user->uuid);
+
+        Event::assertNotDispatched(UserDeleted::class);
     }
 
     /**
@@ -160,13 +170,46 @@ class UserServiceTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $result = $this->service->findUsers();
-
         $this->repository->expects($this->once())
             ->method('get')
             ->willReturn(collect([$user]));
 
+        $result = $this->service->findUsers();
+
         $this->assertInstanceOf(UserRepositoryInterface::class, $result);
         $this->assertCount(1, $result->get());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldAssociateVehicle()
+    {
+        $user    = User::factory()->create();
+        $vehicle = Vehicle::factory()->create();
+
+        $this->repository->expects($this->once())
+            ->method('sync')
+            ->with($user->id, 'vehicles', [$vehicle->id], false)
+            ->willReturn(['attached' => [1]]);
+
+        $result = $this->service->associateCar($user->id, $vehicle->id);
+
+        $this->assertIsArray($result);
+    }
+
+    /**
+     * @test
+     */
+    public function shouldDisassociateVehicle()
+    {
+        $user    = User::factory()->create();
+        $vehicle = Vehicle::factory()->create();
+
+        $this->repository->expects($this->once())
+            ->method('detach')
+            ->with($user->id, 'vehicles', $vehicle->id);
+
+        $this->service->disassociateCar($user->id, $vehicle->id);
     }
 }

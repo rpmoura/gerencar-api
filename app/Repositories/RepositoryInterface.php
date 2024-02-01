@@ -21,4 +21,6 @@ interface RepositoryInterface
     public function delete(int $id);
 
     public function sync(int $id, string $relation, array $attributes, bool $detaching = true);
+
+    public function detach(int $id, string $relation, int $relatedId, bool $withTrashed = false);
 }

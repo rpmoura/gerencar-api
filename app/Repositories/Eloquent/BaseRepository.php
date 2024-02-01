@@ -26,7 +26,7 @@ abstract class BaseRepository implements RepositoryInterface
      * @throws BindingResolutionException
      * @throws RepositoryException
      */
-    private function makeModel(): Model
+    protected function makeModel(): Model
     {
         $model = $this->app->make($this->model());
 
@@ -175,6 +175,20 @@ abstract class BaseRepository implements RepositoryInterface
     public function sync(int $id, string $relation, array $attributes, bool $detaching = true): mixed
     {
         return $this->makeModel()->find($id)->{$relation}()->sync($attributes, $detaching);
+    }
+
+    /**
+     * @param int $id
+     * @param string $relation
+     * @param int|null $relatedId
+     * @return int
+     * @throws BindingResolutionException
+     * @throws RepositoryException
+     */
+    public function detach(int $id, string $relation, ?int $relatedId, bool $withTrashed = false): int
+    {
+        /** @phpstan-ignore-next-line */
+        return $this->makeModel()->withTrashed($withTrashed)->find($id)->{$relation}()->detach($relatedId);
     }
 
     abstract public function model(): string;

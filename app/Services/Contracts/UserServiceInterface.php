@@ -33,5 +33,23 @@ interface UserServiceInterface
      */
     public function delete(string $uuid): void;
 
+    /**
+     * @return UserRepositoryInterface
+     */
     public function findUsers(): UserRepositoryInterface;
+
+    /**
+     * @param int $userId
+     * @param int $vehicleId
+     * @return array
+     */
+    public function associateCar(int $userId, int $vehicleId): array;
+
+    /**
+     * @param int $userId
+     * @param int|null $vehicleId
+     * @param bool $withTrashed
+     * @return int
+     */
+    public function disassociateCar(int $userId, ?int $vehicleId, bool $withTrashed = false): int;
 }

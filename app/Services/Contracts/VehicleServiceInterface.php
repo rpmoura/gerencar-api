@@ -3,7 +3,7 @@
 namespace App\Services\Contracts;
 
 use App\Models\Vehicle;
-use App\Repositories\Contracts\VehicleRepositoryInterface;
+use Illuminate\Database\Eloquent\Builder;
 
 interface VehicleServiceInterface
 {
@@ -33,5 +33,17 @@ interface VehicleServiceInterface
      */
     public function delete(string $uuid): void;
 
-    public function findVehicles(): VehicleRepositoryInterface;
+    /**
+     * @param array<string, mixed> $filter
+     * @return Builder
+     */
+    public function findVehicles(array $filter = []): Builder;
+
+    /**
+     * @param int $vehicleId
+     * @param int|null $userId
+     * @param bool $withTrashed
+     * @return int
+     */
+    public function disassociateUser(int $vehicleId, ?int $userId, bool $withTrashed = false): int;
 }

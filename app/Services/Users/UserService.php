@@ -2,6 +2,7 @@
 
 namespace App\Services\Users;
 
+use App\Events\UserDeleted;
 use App\Exceptions\RepositoryException;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepositoryInterface;
@@ -60,10 +61,22 @@ class UserService implements UserServiceInterface
         if (!$result) {
             throw new RepositoryException(__('exception.user.delete_unsuccessfully'));
         }
+
+        event(new UserDeleted($user));
     }
 
     public function findUsers(): UserRepositoryInterface
     {
         return $this->userRepository;
+    }
+
+    public function associateCar(int $userId, int $vehicleId): array
+    {
+        return $this->userRepository->sync($userId, 'vehicles', [$vehicleId], false);
+    }
+
+    public function disassociateCar(int $userId, ?int $vehicleId, bool $withTrashed = false): int
+    {
+        return $this->userRepository->detach($userId, 'vehicles', $vehicleId, $withTrashed);
     }
 }

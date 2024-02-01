@@ -2,10 +2,12 @@
 
 namespace App\Services\Vehicles;
 
+use App\Events\VehicleDeleted;
 use App\Exceptions\RepositoryException;
 use App\Models\Vehicle;
 use App\Repositories\Contracts\VehicleRepositoryInterface;
 use App\Services\Contracts\VehicleServiceInterface;
+use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class VehicleService implements VehicleServiceInterface
@@ -60,10 +62,17 @@ class VehicleService implements VehicleServiceInterface
         if (!$result) {
             throw new RepositoryException(__('exception.vehicle.delete_unsuccessfully'));
         }
+
+        event(new VehicleDeleted($vehicle));
     }
 
-    public function findVehicles(): VehicleRepositoryInterface
+    public function findVehicles(array $filter = []): Builder
     {
-        return $this->vehicleRepository;
+        return $this->vehicleRepository->findVehicles();
+    }
+
+    public function disassociateUser(int $vehicleId, ?int $userId, bool $withTrashed = false): int
+    {
+        return $this->vehicleRepository->detach($vehicleId, 'users', $userId, $withTrashed);
     }
 }
