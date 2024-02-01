@@ -2,8 +2,10 @@
 
 namespace Tests\Feature\Http\Controllers\V1;
 
+use App\Events\UserDeleted;
 use App\Exceptions\RepositoryException;
 use App\Models\User;
+use Illuminate\Support\Facades\Event;
 use Tests\TestCase;
 
 class UserControllerTest extends TestCase
@@ -185,9 +187,13 @@ class UserControllerTest extends TestCase
     {
         $user = User::factory()->create();
 
+        Event::fake([UserDeleted::class]);
+
         $response = $this->delete("/v1/users/{$user->uuid}");
 
         $response->assertStatus(200);
+
+        Event::assertDispatched(UserDeleted::class);
     }
 
     /**
@@ -197,9 +203,13 @@ class UserControllerTest extends TestCase
     {
         User::factory()->create();
 
+        Event::fake([UserDeleted::class]);
+
         $response = $this->delete('/v1/users/' . fake()->uuid());
 
         $response->assertStatus(404);
+
+        Event::assertNotDispatched(UserDeleted::class);
     }
 
     /**
@@ -208,6 +218,8 @@ class UserControllerTest extends TestCase
     public function shouldUnsuccessfullyDeleteUser()
     {
         $user = User::factory()->create();
+
+        Event::fake([UserDeleted::class]);
 
         $service = \Mockery::mock('App\Services\Users\UserService');
         $service
@@ -220,5 +232,7 @@ class UserControllerTest extends TestCase
         $response = $this->delete("/v1/users/{$user->uuid}");
 
         $response->assertStatus(500);
+
+        Event::assertNotDispatched(UserDeleted::class);
     }
 }

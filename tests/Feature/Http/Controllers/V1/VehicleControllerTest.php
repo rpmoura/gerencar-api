@@ -1,9 +1,11 @@
 <?php
 
-namespace Http\Controllers\V1;
+namespace Tests\Feature\Http\Controllers\V1;
 
+use App\Events\VehicleDeleted;
 use App\Exceptions\RepositoryException;
 use App\Models\Vehicle;
+use Illuminate\Support\Facades\Event;
 use Tests\TestCase;
 
 class VehicleControllerTest extends TestCase
@@ -157,9 +159,13 @@ class VehicleControllerTest extends TestCase
     {
         $vehicle = Vehicle::factory()->create();
 
+        Event::fake([VehicleDeleted::class]);
+
         $response = $this->delete("/v1/vehicles/{$vehicle->uuid}");
 
         $response->assertStatus(200);
+
+        Event::assertDispatched(VehicleDeleted::class);
     }
 
     /**
@@ -169,9 +175,13 @@ class VehicleControllerTest extends TestCase
     {
         Vehicle::factory()->create();
 
+        Event::fake([VehicleDeleted::class]);
+
         $response = $this->delete('/v1/vehicles/' . fake()->uuid());
 
         $response->assertStatus(404);
+
+        Event::assertNotDispatched(VehicleDeleted::class);
     }
 
     /**
@@ -180,6 +190,8 @@ class VehicleControllerTest extends TestCase
     public function shouldUnsuccessfullyDeleteVehicle()
     {
         $vehicle = Vehicle::factory()->create();
+
+        Event::fake([VehicleDeleted::class]);
 
         $service = \Mockery::mock('App\Services\Vehicles\VehicleService');
         $service
@@ -192,5 +204,7 @@ class VehicleControllerTest extends TestCase
         $response = $this->delete("/v1/vehicles/{$vehicle->uuid}");
 
         $response->assertStatus(500);
+
+        Event::assertNotDispatched(VehicleDeleted::class);
     }
 }
