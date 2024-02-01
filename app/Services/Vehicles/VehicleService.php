@@ -6,6 +6,7 @@ use App\Exceptions\RepositoryException;
 use App\Models\Vehicle;
 use App\Repositories\Contracts\VehicleRepositoryInterface;
 use App\Services\Contracts\VehicleServiceInterface;
+use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class VehicleService implements VehicleServiceInterface
@@ -62,8 +63,8 @@ class VehicleService implements VehicleServiceInterface
         }
     }
 
-    public function findVehicles(): VehicleRepositoryInterface
+    public function findVehicles(array $filter = []): Builder
     {
-        return $this->vehicleRepository;
+        return $this->vehicleRepository->findVehicles();
     }
 }
