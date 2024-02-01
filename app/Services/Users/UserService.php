@@ -66,4 +66,14 @@ class UserService implements UserServiceInterface
     {
         return $this->userRepository;
     }
+
+    public function associateCar(int $userId, int $vehicleId): array
+    {
+        return $this->userRepository->sync($userId, 'vehicles', [$vehicleId], false);
+    }
+
+    public function disassociateCar(int $userId, int $vehicleId): int
+    {
+        return $this->userRepository->detach($userId, 'vehicles', $vehicleId);
+    }
 }
