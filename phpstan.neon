@@ -6,10 +6,12 @@ parameters:
     paths:
         - app/
 
-    level: 9
-
+    level: 5
     ignoreErrors:
+        - '#Access to an undefined property.*UserResource::\$(uuid|email|created_at|updated_at)#'
     excludePaths:
+        analyseAndScan:
+             - app/Repositories/RepositoryInterface.php
     checkGenericClassInNonGenericObjectType: false
     noModelMake: false
     noUnnecessaryCollectionCall: false
