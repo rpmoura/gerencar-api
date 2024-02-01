@@ -38,4 +38,12 @@ interface VehicleServiceInterface
      * @return Builder
      */
     public function findVehicles(array $filter = []): Builder;
+
+    /**
+     * @param int $vehicleId
+     * @param int|null $userId
+     * @param bool $withTrashed
+     * @return int
+     */
+    public function disassociateUser(int $vehicleId, ?int $userId, bool $withTrashed = false): int;
 }

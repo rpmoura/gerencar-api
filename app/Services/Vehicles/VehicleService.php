@@ -67,4 +67,9 @@ class VehicleService implements VehicleServiceInterface
     {
         return $this->vehicleRepository->findVehicles();
     }
+
+    public function disassociateUser(int $vehicleId, ?int $userId, bool $withTrashed = false): int
+    {
+        return $this->vehicleRepository->detach($vehicleId, 'users', $userId, $withTrashed);
+    }
 }
