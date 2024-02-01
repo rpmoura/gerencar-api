@@ -10,16 +10,16 @@ if [ ! -e /var/www/.composer_installed ]; then
     echo "Finish install dependencies"
 fi
 
-if [ ! -e /var/www/.migrations_executed ]; then
-    echo "Run migrates and seeders"
-    cd /var/www/ && php artisan migrate --seed && touch .migrations_executed
-    echo "Finish run migrates and seeders"
-fi
-
 if [ ! -e /var/www/.env ]; then
     echo "Copy .env and generate key"
     cd /var/www/ && cp .env.example .env && php artisan key:generate
     echo "Finish copy .env and generate key"
+fi
+
+if [ ! -e /var/www/.migrations_executed ]; then
+    echo "Run migrates and seeders"
+    cd /var/www/ && php artisan migrate:fresh --seed --force && touch .migrations_executed
+    echo "Finish run migrates and seeders"
 fi
 
 echo "Finish entrypoint"
