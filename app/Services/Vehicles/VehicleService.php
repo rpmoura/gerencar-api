@@ -68,7 +68,7 @@ class VehicleService implements VehicleServiceInterface
 
     public function findVehicles(array $filter = []): Builder
     {
-        return $this->vehicleRepository->findVehicles();
+        return $this->vehicleRepository->findVehicles($filter);
     }
 
     public function disassociateUser(int $vehicleId, ?int $userId, bool $withTrashed = false): int
