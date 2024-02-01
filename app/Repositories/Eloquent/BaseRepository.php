@@ -180,14 +180,15 @@ abstract class BaseRepository implements RepositoryInterface
     /**
      * @param int $id
      * @param string $relation
-     * @param int $relatedId
+     * @param int|null $relatedId
      * @return int
      * @throws BindingResolutionException
      * @throws RepositoryException
      */
-    public function detach(int $id, string $relation, int $relatedId): int
+    public function detach(int $id, string $relation, ?int $relatedId, bool $withTrashed = false): int
     {
-        return $this->makeModel()->find($id)->{$relation}()->detach($relatedId);
+        /** @phpstan-ignore-next-line */
+        return $this->makeModel()->withTrashed($withTrashed)->find($id)->{$relation}()->detach($relatedId);
     }
 
     abstract public function model(): string;
