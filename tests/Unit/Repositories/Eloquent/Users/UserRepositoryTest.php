@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Repositories\Eloquent\Users;
 
-use App\Models\User;
+use App\Models\{User, Vehicle};
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Eloquent\Users\UserRepository;
 use Illuminate\Container\Container as Application;
@@ -178,5 +178,33 @@ class UserRepositoryTest extends TestCase
 
         $this->assertIsBool($result);
         $this->assertTrue($result);
+    }
+
+    /**
+     * @test
+     */
+    public function shouldAttachVehicle()
+    {
+        $user    = User::factory()->create();
+        $vehicle = Vehicle::factory()->create();
+
+        $result = $this->repository->sync($user->id, 'vehicles', [$vehicle->id], false);
+
+        $this->assertIsArray($result);
+        $this->assertArrayHasKey('attached', $result);
+    }
+
+    /**
+     * @test
+     */
+    public function shouldDetachVehicle()
+    {
+        $user    = User::factory()->create();
+        $vehicle = Vehicle::factory()->create();
+
+        $user->vehicles()->attach($vehicle->id);
+
+        $result = $this->repository->detach($user->id, 'vehicles', $vehicle->id);
+        $this->assertIsInt($result);
     }
 }

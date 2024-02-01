@@ -3,7 +3,7 @@
 namespace Tests\Unit\Services\Users;
 
 use App\Exceptions\RepositoryException;
-use App\Models\User;
+use App\Models\{User, Vehicle};
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Eloquent\Users\UserRepository;
 use App\Services\Contracts\UserServiceInterface;
@@ -160,13 +160,46 @@ class UserServiceTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $result = $this->service->findUsers();
-
         $this->repository->expects($this->once())
             ->method('get')
             ->willReturn(collect([$user]));
 
+        $result = $this->service->findUsers();
+
         $this->assertInstanceOf(UserRepositoryInterface::class, $result);
         $this->assertCount(1, $result->get());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldAssociateVehicle()
+    {
+        $user    = User::factory()->create();
+        $vehicle = Vehicle::factory()->create();
+
+        $this->repository->expects($this->once())
+            ->method('sync')
+            ->with($user->id, 'vehicles', [$vehicle->id], false)
+            ->willReturn(['attached' => [1]]);
+
+        $result = $this->service->associateCar($user->id, $vehicle->id);
+
+        $this->assertIsArray($result);
+    }
+
+    /**
+     * @test
+     */
+    public function shouldDisassociateVehicle()
+    {
+        $user    = User::factory()->create();
+        $vehicle = Vehicle::factory()->create();
+
+        $this->repository->expects($this->once())
+            ->method('detach')
+            ->with($user->id, 'vehicles', $vehicle->id);
+
+        $this->service->disassociateCar($user->id, $vehicle->id);
     }
 }
