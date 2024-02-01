@@ -47,8 +47,9 @@ interface UserServiceInterface
 
     /**
      * @param int $userId
-     * @param int $vehicleId
+     * @param int|null $vehicleId
+     * @param bool $withTrashed
      * @return int
      */
-    public function disassociateCar(int $userId, int $vehicleId): int;
+    public function disassociateCar(int $userId, ?int $vehicleId, bool $withTrashed = false): int;
 }

@@ -72,8 +72,8 @@ class UserService implements UserServiceInterface
         return $this->userRepository->sync($userId, 'vehicles', [$vehicleId], false);
     }
 
-    public function disassociateCar(int $userId, int $vehicleId): int
+    public function disassociateCar(int $userId, ?int $vehicleId, bool $withTrashed = false): int
     {
-        return $this->userRepository->detach($userId, 'vehicles', $vehicleId);
+        return $this->userRepository->detach($userId, 'vehicles', $vehicleId, $withTrashed);
     }
 }
