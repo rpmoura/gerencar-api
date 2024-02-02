@@ -1,0 +1,2634 @@
+{
+	"info": {
+		"_postman_id": "2b381186-6af1-4fa3-bcef-ec8862184937",
+		"name": "gerencicar-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3227076"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Users-Vehicles",
+					"item": [
+						{
+							"name": "Associate User x Vehicles",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:user/vehicles/:vehicle",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":user",
+										"vehicles",
+										":vehicle"
+									],
+									"variable": [
+										{
+											"key": "user",
+											"value": "d6d1507b-ba46-4ac0-92ad-1913d8c78ebd"
+										},
+										{
+											"key": "vehicle",
+											"value": "e00f8a51-d74b-4b08-a564-70a3585fb294"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 - associates",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/v1/users/:user/vehicles/:vehicle",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":user",
+												"vehicles",
+												":vehicle"
+											],
+											"variable": [
+												{
+													"key": "user",
+													"value": "d6d1507b-ba46-4ac0-92ad-1913d8c78ebd"
+												},
+												{
+													"key": "vehicle",
+													"value": "e00f8a51-d74b-4b08-a564-70a3585fb294"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.13"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Feb 2024 22:24:39 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "10"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "6"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User's vehicle successfully associated\"\n}"
+								},
+								{
+									"name": "404 - user not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/v1/users/:user/vehicles/:vehicle",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":user",
+												"vehicles",
+												":vehicle"
+											],
+											"variable": [
+												{
+													"key": "user",
+													"value": "1335e8b0-d87b-442c-9741-ab94100a2a90"
+												},
+												{
+													"key": "vehicle",
+													"value": "e00f8a51-d74b-4b08-a564-70a3585fb294"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.13"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Feb 2024 22:23:46 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "10"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "9"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"User not found\",\n    \"data\": null,\n    \"field\": null\n}"
+								},
+								{
+									"name": "404 - vehicle not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/v1/users/:user/vehicles/:vehicle",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":user",
+												"vehicles",
+												":vehicle"
+											],
+											"variable": [
+												{
+													"key": "user",
+													"value": "d6d1507b-ba46-4ac0-92ad-1913d8c78ebd"
+												},
+												{
+													"key": "vehicle",
+													"value": "e00f8a51-d74b-4b08-a564-70a3585fb299"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.13"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Feb 2024 22:24:23 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "10"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "7"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"Vehicle not found\",\n    \"data\": null,\n    \"field\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Disassociate User x Vehicles",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:user/vehicles/:vehicle",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":user",
+										"vehicles",
+										":vehicle"
+									],
+									"variable": [
+										{
+											"key": "user",
+											"value": "d6d1507b-ba46-4ac0-92ad-1913d8c78ebd"
+										},
+										{
+											"key": "vehicle",
+											"value": "e00f8a51-d74b-4b08-a564-70a3585fb294"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - disassociates",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/v1/users/:user/vehicles/:vehicle",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":user",
+												"vehicles",
+												":vehicle"
+											],
+											"variable": [
+												{
+													"key": "user",
+													"value": "d6d1507b-ba46-4ac0-92ad-1913d8c78ebd"
+												},
+												{
+													"key": "vehicle",
+													"value": "e00f8a51-d74b-4b08-a564-70a3585fb294"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.13"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Feb 2024 22:25:24 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "10"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "9"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User's vehicle successfully disassociated\"\n}"
+								},
+								{
+									"name": "404 - user not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/v1/users/:user/vehicles/:vehicle",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":user",
+												"vehicles",
+												":vehicle"
+											],
+											"variable": [
+												{
+													"key": "user",
+													"value": "d6d1507b-ba46-4ac0-92ad-1913d8c78ebb"
+												},
+												{
+													"key": "vehicle",
+													"value": "e00f8a51-d74b-4b08-a564-70a3585fb294"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.13"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Feb 2024 22:25:44 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "10"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"User not found\",\n    \"data\": null,\n    \"field\": null\n}"
+								},
+								{
+									"name": "404 - vehicle not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/v1/users/:user/vehicles/:vehicle",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":user",
+												"vehicles",
+												":vehicle"
+											],
+											"variable": [
+												{
+													"key": "user",
+													"value": "d6d1507b-ba46-4ac0-92ad-1913d8c78ebd"
+												},
+												{
+													"key": "vehicle",
+													"value": "e00f8a51-d74b-4b08-a564-70a3585fb299"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.13"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Feb 2024 22:25:59 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "10"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "7"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"Vehicle not found\",\n    \"data\": null,\n    \"field\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "List Associate Vehicles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:user/vehicles?page=1&per_page=15",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":user",
+										"vehicles"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Integer/Optional - default 1"
+										},
+										{
+											"key": "per_page",
+											"value": "15",
+											"description": "Integer/Optional - default 15"
+										}
+									],
+									"variable": [
+										{
+											"key": "user",
+											"value": "d6d1507b-ba46-4ac0-92ad-1913d8c78ebd"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - listed vehicles",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/v1/users/:user/vehicles?page=1&per_page=15",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":user",
+												"vehicles"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Integer/Optional - default 1"
+												},
+												{
+													"key": "per_page",
+													"value": "15",
+													"description": "Integer/Optional - default 15"
+												}
+											],
+											"variable": [
+												{
+													"key": "user",
+													"value": "1335e8b0-d87b-442c-9741-ab94100a2a90"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.13"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Feb 2024 18:45:21 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "10"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Vehicles listed successfully\",\n    \"data\": {\n        \"vehicles\": {\n            \"data\": [\n                {\n                    \"uuid\": \"8ba435f3-5216-4222-8c58-7ae926cc7038\",\n                    \"brand\": \"Marca\",\n                    \"model\": \"Novo Modelo\",\n                    \"created_at\": \"2024-02-01T03:49:03+00:00\",\n                    \"updated_at\": \"2024-02-01T03:54:43+00:00\"\n                },\n                {\n                    \"uuid\": \"e00f8a51-d74b-4b08-a564-70a3585fb294\",\n                    \"brand\": \"Marca\",\n                    \"model\": \"Model2\",\n                    \"created_at\": \"2024-02-01T04:58:02+00:00\",\n                    \"updated_at\": \"2024-02-01T04:58:02+00:00\"\n                }\n            ],\n            \"meta\": {\n                \"pages\": 1,\n                \"count\": 2,\n                \"per_page\": 15,\n                \"current_page\": 1,\n                \"first\": 1,\n                \"last\": 2,\n                \"total\": 2\n            },\n            \"links\": {\n                \"first_page\": \"http://localhost:8019/v1/users/1335e8b0-d87b-442c-9741-ab94100a2a90/vehicles?page=1\",\n                \"last_page\": \"http://localhost:8019/v1/users/1335e8b0-d87b-442c-9741-ab94100a2a90/vehicles?page=1\",\n                \"previous\": null,\n                \"next\": null\n            }\n        }\n    }\n}"
+								},
+								{
+									"name": "404 - user not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/v1/users/:user/vehicles?page=1&per_page=15",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":user",
+												"vehicles"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Integer/Optional - default 1"
+												},
+												{
+													"key": "per_page",
+													"value": "15",
+													"description": "Integer/Optional - default 15"
+												}
+											],
+											"variable": [
+												{
+													"key": "user",
+													"value": "1335e8b0-d87b-442c-9741-ab94100a2a90"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.13"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Feb 2024 22:26:29 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "10"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "9"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"User not found\",\n    \"data\": null,\n    \"field\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": {\r\n        \"email\": \"user@email.com\",\r\n        \"password\": \"pass\",\r\n        \"password_confirmation\": \"pass\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 - user created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"user@email.com\",\r\n        \"password\": \"pass\",\r\n        \"password_confirmation\": \"pass\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:28:56 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"user\": {\n            \"uuid\": \"1335e8b0-d87b-442c-9741-ab94100a2a90\",\n            \"email\": \"user@email.com\",\n            \"created_at\": \"2024-01-31T20:28:55+00:00\",\n            \"updated_at\": \"2024-01-31T20:28:55+00:00\"\n        }\n    }\n}"
+						},
+						{
+							"name": "422 - invalid email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"user\",\r\n        \"password\": \"pass\",\r\n        \"password_confirmation\": \"pass\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:37:01 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "9"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"message\": \"The email field must be a valid email address.\",\n    \"field\": \"email\"\n}"
+						},
+						{
+							"name": "422 - invalid password confirmation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"user.two@email.com\",\r\n        \"password\": \"pass\",\r\n        \"password_confirmation\": \"wrong\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:37:43 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"message\": \"The password field confirmation does not match.\",\n    \"field\": \"password\"\n}"
+						},
+						{
+							"name": "422 - email has already",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"user@email.com\",\r\n        \"password\": \"pass\",\r\n        \"password_confirmation\": \"wrong\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:38:07 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "9"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"message\": \"The email has already been taken.\",\n    \"field\": \"email\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/users/:uuid",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "f44e8762-ff67-4e7c-bf27-5aaf65a32fb6"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - user found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "f44e8762-ff67-4e7c-bf27-5aaf65a32fb6"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:26:50 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "9"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"Users listed successfully\",\n    \"data\": {\n        \"user\": {\n            \"uuid\": \"f44e8762-ff67-4e7c-bf27-5aaf65a32fb6\",\n            \"email\": \"admin@email.com\",\n            \"created_at\": \"2024-01-31T00:11:10+00:00\",\n            \"updated_at\": \"2024-01-31T00:11:10+00:00\"\n        }\n    }\n}"
+						},
+						{
+							"name": "404 - user not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "f44e8762-ff67-4e7c-bf27-5aaf65a32fb5"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:27:39 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"User not found\",\n    \"data\": null,\n    \"field\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/users?page=1&per_page=15",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Integer/Optional - default 1"
+								},
+								{
+									"key": "per_page",
+									"value": "15",
+									"description": "Integer/Optional - default 15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - users listed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Integer/Optional - default 1",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": "15",
+											"description": "Integer/Optional - default 15",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:25:49 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"Users listed successfully\",\n    \"data\": {\n        \"users\": {\n            \"data\": [\n                {\n                    \"uuid\": \"f44e8762-ff67-4e7c-bf27-5aaf65a32fb6\",\n                    \"email\": \"admin@email.com\",\n                    \"created_at\": \"2024-01-31T00:11:10+00:00\",\n                    \"updated_at\": \"2024-01-31T00:11:10+00:00\"\n                }\n            ],\n            \"meta\": {\n                \"pages\": 1,\n                \"count\": 1,\n                \"per_page\": 15,\n                \"current_page\": 1,\n                \"first\": 1,\n                \"last\": 1,\n                \"total\": 1\n            },\n            \"links\": {\n                \"first_page\": \"http://localhost:8019/v1/users?page=1\",\n                \"last_page\": \"http://localhost:8019/v1/users?page=1\",\n                \"previous\": null,\n                \"next\": null\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": {\r\n        \"email\": \"email@email.com\",\r\n        \"password\": \"newpass\",\r\n        \"password_confirmation\": \"newpass\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/users/:uuid",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "d9f4e852-52fc-45c4-88ff-3d1a45399e86"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - user updated",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"new.email@email.com\",\r\n        \"password\": \"newpass\",\r\n        \"password_confirmation\": \"newpass\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "1335e8b0-d87b-442c-9741-ab94100a2a90"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:41:13 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"User updated successfully\",\n    \"data\": {\n        \"user\": {\n            \"uuid\": \"1335e8b0-d87b-442c-9741-ab94100a2a90\",\n            \"email\": \"new.email@email.com\",\n            \"created_at\": \"2024-01-31T20:28:55+00:00\",\n            \"updated_at\": \"2024-01-31T20:41:13+00:00\"\n        }\n    }\n}"
+						},
+						{
+							"name": "422 - user not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"email@email.com\",\r\n        \"password\": \"newpass\",\r\n        \"password_confirmation\": \"newpass\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "1335e8b0-d87b-442c-9741-ab94100a2a91"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:43:06 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"User not found\",\n    \"data\": null,\n    \"field\": null\n}"
+						},
+						{
+							"name": "422 - invalid password confirmation",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"email@email.com\",\r\n        \"password\": \"newpass\",\r\n        \"password_confirmation\": \"wrong\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "1335e8b0-d87b-442c-9741-ab94100a2a90"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:43:41 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"message\": \"The password field confirmation does not match.\",\n    \"field\": \"password\"\n}"
+						},
+						{
+							"name": "422 - email has already",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"email@email.com\",\r\n        \"password\": \"newpass\",\r\n        \"password_confirmation\": \"newpass\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "d9f4e852-52fc-45c4-88ff-3d1a45399e86"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 20:44:49 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "9"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"message\": \"The email has already been taken.\",\n    \"field\": \"email\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/users/:uuid",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "1335e8b0-d87b-442c-9741-ab94100a2a90"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - user deleted",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "d9f4e852-52fc-45c4-88ff-3d1a45399e86"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 02:57:03 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"User deleted successfully\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "404 - user not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/users/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "d9f4e852-52fc-45c4-88ff-3d1a45399e86"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 02:57:31 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "6"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"User not found\",\n    \"data\": null,\n    \"field\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Create Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicle\": {\r\n        \"brand\": \"Marca\",\r\n        \"model\": \"Model\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/vehicles",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"vehicles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 - vehicle created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicle\": {\r\n        \"brand\": \"Marca\",\r\n        \"model\": \"Model\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:49:04 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"Vehicle created successfully\",\n    \"data\": {\n        \"vehicle\": {\n            \"uuid\": \"8ba435f3-5216-4222-8c58-7ae926cc7038\",\n            \"brand\": \"Marca\",\n            \"model\": \"Model\",\n            \"created_at\": \"2024-02-01T03:49:03+00:00\",\n            \"updated_at\": \"2024-02-01T03:49:03+00:00\"\n        }\n    }\n}"
+						},
+						{
+							"name": "422 - invalid payload",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicle\": {\r\n        \"brand\": null,\r\n        \"model\": \"Model\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:49:52 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "9"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"message\": \"The brand field is required.\",\n    \"field\": \"brand\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/vehicles?page=1&per_page=15",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"vehicles"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Integer/Optional - default 1"
+								},
+								{
+									"key": "per_page",
+									"value": "15",
+									"description": "Integer/Optional - default 15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - vehicles listed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:52:04 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"Vehicles listed successfully\",\n    \"data\": {\n        \"vehicles\": {\n            \"data\": [\n                {\n                    \"uuid\": \"8ba435f3-5216-4222-8c58-7ae926cc7038\",\n                    \"brand\": \"Marca\",\n                    \"model\": \"Model\",\n                    \"created_at\": \"2024-02-01T03:49:03+00:00\",\n                    \"updated_at\": \"2024-02-01T03:49:03+00:00\"\n                }\n            ],\n            \"meta\": {\n                \"pages\": 1,\n                \"count\": 1,\n                \"per_page\": 15,\n                \"current_page\": 1,\n                \"first\": 1,\n                \"last\": 1,\n                \"total\": 1\n            },\n            \"links\": {\n                \"first_page\": \"http://localhost:8019/v1/vehicles?page=1\",\n                \"last_page\": \"http://localhost:8019/v1/vehicles?page=1\",\n                \"previous\": null,\n                \"next\": null\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Vehicle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"vehicles",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "8ba435f3-5216-4222-8c58-7ae926cc7038"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - vehicle found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "8ba435f3-5216-4222-8c58-7ae926cc7038"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:52:57 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "9"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"Vehicles listed successfully\",\n    \"data\": {\n        \"vehicle\": {\n            \"uuid\": \"8ba435f3-5216-4222-8c58-7ae926cc7038\",\n            \"brand\": \"Marca\",\n            \"model\": \"Model\",\n            \"created_at\": \"2024-02-01T03:49:03+00:00\",\n            \"updated_at\": \"2024-02-01T03:49:03+00:00\"\n        }\n    }\n}"
+						},
+						{
+							"name": "404 - vehicle not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "8ba435f3-5216-4222-8c58-7ae926cc7039"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:53:11 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"Vehicle not found\",\n    \"data\": null,\n    \"field\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicle\": {\r\n        \"brand\": \"Nova Marca\",\r\n        \"model\": \"Novo Modelo\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"vehicles",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "8ba435f3-5216-4222-8c58-7ae926cc7038"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - vehicle updated",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicle\": {\r\n        \"model\": \"Novo Modelo\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "8ba435f3-5216-4222-8c58-7ae926cc7038"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:54:44 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"Vehicle updated successfully\",\n    \"data\": {\n        \"vehicle\": {\n            \"uuid\": \"8ba435f3-5216-4222-8c58-7ae926cc7038\",\n            \"brand\": \"Marca\",\n            \"model\": \"Novo Modelo\",\n            \"created_at\": \"2024-02-01T03:49:03+00:00\",\n            \"updated_at\": \"2024-02-01T03:54:43+00:00\"\n        }\n    }\n}"
+						},
+						{
+							"name": "404 - vehicle not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicle\": {\r\n        \"model\": \"Novo Modelo\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "8ba435f3-5216-4222-8c58-7ae926cc7039"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:55:10 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"Vehicle not found\",\n    \"data\": null,\n    \"field\": null\n}"
+						},
+						{
+							"name": "422 - invalid payload",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicle\": {\r\n        \"brand\": \"Nova Marca\",\r\n        \"model\": null\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "8ba435f3-5216-4222-8c58-7ae926cc7038"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:55:54 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"message\": \"The model field is required.\",\n    \"field\": \"model\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Vehicle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"vehicles",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "8ba435f3-5216-4222-8c58-7ae926cc7038"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - vehicle deleted",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "14eabc21-bde9-4e13-a070-9b5f2aaf2c05"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:57:24 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"success\",\n    \"code\": 0,\n    \"message\": \"Vehicle deleted successfully\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "404 - vehicle not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/v1/vehicles/:uuid",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v1",
+										"vehicles",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "14eabc21-bde9-4e13-a070-9b5f2aaf2c06"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.23.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 03:57:41 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "6"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"error\",\n    \"code\": -1,\n    \"message\": \"Vehicle not found\",\n    \"data\": null,\n    \"field\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
