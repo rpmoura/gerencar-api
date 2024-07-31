@@ -79,4 +79,9 @@ class UserService implements UserServiceInterface
     {
         return $this->userRepository->detach($userId, 'vehicles', $vehicleId, $withTrashed);
     }
+
+    public   function test()
+    {
+        echo "error";
+    }
 }
